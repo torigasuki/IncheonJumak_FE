@@ -1,31 +1,190 @@
 <!DOCTYPE html>
-<html lang="kor">
-
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700;800;900&display=swap"
-        rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
+  
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <title>인천주막</title>
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 
 <body>
-    <header>
-
-    </header>
+    <header></header>
     <main>
-        여기에 메인 내용!
+        <section class="event-aria">
+            <div class="card-title">
+                <span>전통주 행사</span>
+            </div>
+            <div class="event-list">
+                <div class="event-img">
+                    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://sool-fest.com/home/img/main/main_bnr.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPaiB_Hl2lLyZdy17WCI4MrZ4BJBEiLcFY3A&usqp=CAU" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXFWtSZltdLumG5uavC-i54kuK7whqRaYIzg&usqp=CAU" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="event-list-text">
+                    <a href="#">[서울] 2022 대한민국 우리 술 대축제</a>
+                    <a href="#">[부산] 2021 대한민국 우리 술 대축제</a>
+                    <a href="#">[대구] 2020 대한민국 우리 술 대축제</a>
+                    <a href="#">[광주] 2022 대한민국 우리 술 대축제</a>
+                </div>
+            </div>
+        </section>
+        <section class="alchol-aria">
+            <div class="card-title">
+                <span>한국 전통주 : 최고의 술</span>
+            </div>
+            <div class="card-container">
+
+                <div class="card" onclick="window.location.href = 'https://www.naver.com'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                    <div class="alchol-card">
+                        <span class="alchol-name">ㅁㅁㅁ주</span>
+                        <span class="alchol-desc">탁주 / 10.0도</span>
+                    </div>
+                </div>
+                <div class="card" onclick="window.location.href = 'https://www.naver.com'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                    <div class="alchol-card">
+                        <span class="alchol-name">ㅁㅁㅁ주</span>
+                        <span class="alchol-desc">탁주 / 10.0도</span>
+                    </div>
+                </div>
+                <div class="card" onclick="window.location.href = 'https://www.naver.com'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                    <div class="alchol-card">
+                        <span class="alchol-name">ㅁㅁㅁ주</span>
+                        <span class="alchol-desc">탁주 / 10.0도</span>
+                    </div>
+                </div>
+                <div class="card" onclick="window.location.href = 'https://www.naver.com'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                    <div class="alchol-card">
+                        <span class="alchol-name">ㅁㅁㅁ주</span>
+                        <span class="alchol-desc">탁주 / 10.0도</span>
+                    </div>
+                </div>
+                <div class="card" onclick="window.location.href = 'https://www.naver.com'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                    <div class="alchol-card">
+                        <span class="alchol-name">ㅁㅁㅁ주</span>
+                        <span class="alchol-desc">탁주 / 10.0도</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="ad-aria">
+            <img src="data:image/jpeg;base64,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">
+            <div class="ad-text">ad</div>
+        </section>
+
+        <section class="brewery-aria">
+            <div class="card-title">
+                <span>전통주 양조장</span>
+            </div>
+            <div class="brewery-container">
+
+                <div class="brewery" onclick="window.location.href = 'https://www.naver.com'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                    <div class="brewery-card">
+                        <span class="brewery-name">국순당</span>
+                        <span class="brewery-region">[강원도]</span>
+                        <span class="brewery-desc">탁주 / 증류주</span>
+                    </div>
+                </div>
+                <div class="brewery" onclick="window.location.href = 'https://www.naver.com'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                    <div class="brewery-card">
+                        <span class="brewery-name">국순당</span>
+                        <span class="brewery-region">[강원도]</span>
+                        <span class="brewery-desc">탁주 / 증류주</span>
+                    </div>
+                </div>
+                <div class="brewery" onclick="window.location.href = 'https://www.naver.com'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                    <div class="brewery-card">
+                        <span class="brewery-name">국순당</span>
+                        <span class="brewery-region">[강원도]</span>
+                        <span class="brewery-desc">탁주 / 증류주</span>
+                    </div>
+                </div>
+                <div class="brewery" onclick="window.location.href = 'https://www.naver.com'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                    <div class="brewery-card">
+                        <span class="brewery-name">국순당</span>
+                        <span class="brewery-region">[강원도]</span>
+                        <span class="brewery-desc">탁주 / 증류주</span>
+                    </div>
+                </div>
+                <div class="brewery" onclick="window.location.href = 'https://www.naver.com'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                    <div class="brewery-card">
+                        <span class="brewery-name">국순당</span>
+                        <span class="brewery-region">[강원도]</span>
+                        <span class="brewery-desc">탁주 / 증류주</span>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
     </main>
+
     <footer class="footer">
+        <div class="member-list">        
+            <div class="team-member">
+                <a class="team-member-name">팀장 원윤희 님</a>
+                <a href="https://velog.io/@alli9"><img src="https://t1.daumcdn.net/cfile/tistory/9952393A5C3448C507" alt=""></a>
+                <a href="https://github.com/gangyuji"><img src="images/github.png" alt=""></a>
+            </div>
+            <div class="team-member">
+                <a class="team-member-name">팀원 김근혜 님</a>
+                <a href="https://sw-ing.tistory.com/"><img src="https://t1.daumcdn.net/cfile/tistory/9952393A5C3448C507" alt=""></a>
+                <a href="https://github.com/geunhye-kim"><img src="images/github.png" alt=""></a>
+            </div>
+            <div class="team-member">
+                <a class="team-member-name">팀원 이정민 님</a>
+                <a href="https://ltekean.tistory.com/"><img src="https://t1.daumcdn.net/cfile/tistory/9952393A5C3448C507" alt=""></a>
+                <a href="https://github.com/ltekean"><img src="images/github.png" alt=""></a>
+            </div>
+            <div class="team-member">
+                <a class="team-member-name">팀원 정승호 님</a>
+                <a href="https://teapackage.tistory.com/"><img src="https://t1.daumcdn.net/cfile/tistory/9952393A5C3448C507" alt=""></a>
+                <a href="https://github.com/torigasuki"><img src="images/github.png" alt=""></a>
+            </div>
+            <div class="team-member">
+                <a class="team-member-name">팀원 황단아 님</a>
+                <a href="https://diane073.tistory.com/"><img src="https://t1.daumcdn.net/cfile/tistory/9952393A5C3448C507" alt=""></a>
+                <a href="https://github.com/diane073"><img src="images/github.png" alt=""></a>
+            </div>
+            <div class="team-member" style="margin-top: 10px;">
+                <span class="team-member-name">Copyright &copy; Your Website 2023</span>
+            </div>
+        </div>
     </footer>
     <script type="module" src="/js/index.js"></script>
 </body>
