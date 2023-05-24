@@ -1,5 +1,5 @@
-import {navBar} from './protocol_api.js'
+import {navBar,sendCode} from './protocol_api.js'
 
 window.onload = () => {
-    navBar()
+    sendCode()
 }
