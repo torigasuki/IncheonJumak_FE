@@ -1,2 +1,5 @@
-console.log('로딩 완료')
+import {navBar} from './protocol_api.js'
 
+window.onload = () => {
+    navBar()
+}
