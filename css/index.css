@@ -1,8 +1,10 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto Slab', serif;
     background-color: rgb(245, 245, 245);
 }
+
 main {
     width: 1200px;
     margin: auto;
@@ -14,6 +16,9 @@ main {
 /* ----------------------- event ----------------------- */
 /* ----------------------- event ----------------------- */
 
+.event-aria {
+    margin-top: 250px;
+}
 .event-list {
     display: flex;
     width: 100%;
@@ -36,6 +41,12 @@ main {
     margin: 10px;
     color: black;
     text-decoration-line: none;
+    cursor: pointer;
+}
+
+.event-list-text > a:hover {
+    transform: scale(1.05);
+    color: rgb(87, 96, 156) !important;
 }
 
 /* ----------------------- alchol ----------------------- */
@@ -45,12 +56,12 @@ main {
 /* ----------------------- alchol ----------------------- */
 
 .alchol-aria {
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .card-title {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     display: flex;
     text-align: center;
 }
@@ -62,8 +73,9 @@ main {
 
 .card-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .card {
@@ -118,6 +130,42 @@ main {
     text-decoration: none;
 }
 
+.pagination-btn-l {
+    position: absolute;
+    top: 100px;
+    left: -40px;
+    border-style: none;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(245, 245, 245)
+}
+
+.pagination-btn-r {
+    position: absolute;
+    top: 100px;
+    right: -40px;
+    border-style: none;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(245, 245, 245)
+}
+
+.pagination-btn-l > img {
+    width: 30px;
+}
+
+.pagination-btn-r > img {
+    width: 30px;
+}
+
+.pagination-btn-l > img:hover {
+    transform: scale(1.2);
+}
+
+.pagination-btn-r > img:hover {
+    transform: scale(1.2);
+}
+
 /* ----------------------- ad ----------------------- */
 /* ----------------------- ad ----------------------- */
 /* ----------------------- ad ----------------------- */
@@ -125,8 +173,8 @@ main {
 /* ----------------------- ad ----------------------- */
 
 .ad-aria {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 100px;
+    margin-bottom: 100px;
     position: relative;
 }
 
@@ -136,7 +184,6 @@ main {
     object-fit: cover;
     display: block;
     margin: auto;
-    
 }
 
 .ad-text {
@@ -162,12 +209,15 @@ main {
 
 .brewery-aria {
     margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 .brewery-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
 }
 
 .brewery {
@@ -222,107 +272,50 @@ main {
     text-decoration: none;
 }
 
-.brewery-desc {
+.brewery-res {
     margin: auto;
     text-decoration: none;
-}
-
-/* ----------------------- footer ----------------------- */
-/* ----------------------- footer ----------------------- */
-/* ----------------------- footer ----------------------- */
-/* ----------------------- footer ----------------------- */
-/* ----------------------- footer ----------------------- */
-
-.footer {
-    display: block;
-    flex-direction: row;
-    align-items: center;
-    height: 220px;
-    width: 100%;        
-    background-color: rgb(87, 96, 156);
-    position: relative;
-    bottom: 0;
-}
-
-.member-list {
-    padding-top: 15px;
-}
-
-.team-member {
-    width: 200px;
-    margin: auto;
-    display: flex;
-    text-align: center;
-    margin-top: 2px;
-}
-
-.team-member > a {
-    margin: auto;
-    margin-bottom: 2px;
-}
-
-.team-member > a > img {
-    width: 25px;
-}
-
-.team-member-name {
-    font-size: small;
-    color: white;
-    margin-top: 5px !important;
-    text-decoration-line: none;
-}
-
-/* .main-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 180px;
-    align-items: center;
-    background-color: rgb(32, 37, 64); 
-    메인색상 #202540
-}
-
-.header-logo {
-    border: none;
-    background: inherit;
-    font-size: 14px;
-    font-family: inherit;
-    padding: 8px;
-    margin-left: 25px;
-    cursor: pointer;
-}
-
-.header-logo img {
-    width: 120px;
-    height: 100%;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-.header-btn {
-    margin-right: 25px;
-    margin-left: 25px;
-}
-
-.header-btn button {
-    border: none;
-    background: inherit;
-    font-size: 20px;
-    font-family: inherit;
-    padding: 8px;
     font-weight: bold;
-    color: rgb(255, 255, 255);
 }
 
-.header-btn button:hover {
-    background-color: antiquewhite;
-    border-radius: 8px;
-    color: rgb(35, 35, 35);
+.brewery-exp {
+    margin: auto;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.main-container {
-    margin: 35px 25px 25px 25px;
-    padding: 16px;
-    border: 1px solid rgb(184, 184, 184);
-    border-radius: 8px;
-} */
+.pagination-btn-bl {
+    position: absolute;
+    top: 100px;
+    left: -40px;
+    border-style: none;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(245, 245, 245)
+}
+
+.pagination-btn-br {
+    position: absolute;
+    top: 100px;
+    right: -40px;
+    border-style: none;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(245, 245, 245)
+}
+
+.pagination-btn-bl > img {
+    width: 30px;
+}
+
+.pagination-btn-br > img {
+    width: 30px;
+}
+
+.pagination-btn-bl > img:hover {
+    transform: scale(1.2);
+}
+
+.pagination-btn-br > img:hover {
+    transform: scale(1.2);
+}

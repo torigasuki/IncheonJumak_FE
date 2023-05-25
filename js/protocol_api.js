@@ -53,26 +53,21 @@ export async function socialLogin(social) {
     }
 }
 function oauthSignIn(key, redirecturi) {
-    // Google's OAuth 2.0 endpoint for requesting an access token
     var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
 
-    // Create <form> element to submit parameters to OAuth 2.0 endpoint.
     var form = document.createElement('form');
-    form.setAttribute('method', 'GET'); // Send as a GET request.
+    form.setAttribute('method', 'GET'); 
     form.setAttribute('action', oauth2Endpoint);
-
-    // Parameters to pass to OAuth 2.0 endpoint.
     var params = {
         'client_id': key,
         'redirect_uri': redirecturi,
         'response_type': 'token',
-        'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
+        'scope': 'openid email profile',
         'include_granted_scopes': 'true',
         'state': 'pass-through value',
         'prompt': 'consent'
     };
 
-    // Add form parameters as hidden input values.
     for (var p in params) {
         var input = document.createElement('input');
         input.setAttribute('type', 'hidden');
@@ -81,7 +76,6 @@ function oauthSignIn(key, redirecturi) {
         form.appendChild(input);
     }
 
-    // Add form to page and submit it to open the OAuth 2.0 endpoint.
     document.body.appendChild(form);
     form.submit();
 }
@@ -97,10 +91,10 @@ export async function userLogin() {
             'password': form.password.value,
         })
     })
-    if(response.status == 200){
+    if (response.status == 200) {
         const response_json = await response.json()
-        localStorage.setItem('refresh',response_json.refresh)
-        localStorage.setItem('access',response_json.access)
+        localStorage.setItem('refresh', response_json.refresh)
+        localStorage.setItem('access', response_json.access)
         const base64Url = response_json.access.split('.')[1];
         const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
         const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
@@ -108,4 +102,129 @@ export async function userLogin() {
         }).join(''))
         localStorage.setItem('payload', jsonPayload)
     }
+}
+
+export async function sendCode() {
+    var currentUrl = window.location.href
+    var urlWithoutQuery = currentUrl.split('?')[0]
+    let social = null
+    let code = new URLSearchParams(window.location.search).get('code')
+    let state = null
+    if (code) {
+        state = new URLSearchParams(window.location.search).get('state')
+        if (state) {
+            social = 'naver'
+        }
+        else {
+            social = 'kakao'
+        }
+    }
+    else {
+        social = 'google'
+        urlWithoutQuery = currentUrl.split('#')[0]
+        code = new URLSearchParams(location.href).get('access_token')
+    }
+    if (code) {
+        const url = `${BACKEND_URL}/api/user/${social}/`
+        let body ={code,}
+        if(state){
+            body.state = state
+        }
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: contentjson,
+            body: JSON.stringify(body)
+        })
+        if (response.status == 200) {
+            const response_json = await response.json()
+            localStorage.setItem('refresh', response_json.refresh)
+            localStorage.setItem('access', response_json.access)
+            const base64Url = response_json.access.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''))
+            localStorage.setItem('payload', jsonPayload)
+            window.location.href = urlWithoutQuery
+        }
+    }
+}
+export async function sendMail(){
+    const form = document.getElementById('signup_form')
+    const url = `${BACKEND_URL}/api/user/email/`
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: contentjson,
+        body: JSON.stringify({
+            'email': form.email.value,
+        })
+    })
+    if (response.status == 200) {
+        countdown()
+    }
+}
+
+function countdown() {
+    const timer = document.getElementById('verify_count')
+    timer.style.display = 'inline'
+    var count = 10
+  
+    var interval = setInterval(function() {
+        var minutes = Math.floor(count / 60); 
+        var seconds = count % 60;
+    
+        timer.innerText = minutes + ': ' + seconds;
+    
+  
+      count--; // 1초 감소
+  
+      if (count < 0) {
+        clearInterval(interval); // 카운트다운 종료
+        console.log("Countdown Complete!"); // 종료 메시지 출력
+      }
+    }, 1000); // 1초마다 실행
+  }
+  
+
+
+
+export async function codeCheck(){
+    const form = document.getElementById('signup_form')
+    const url = `${BACKEND_URL}/api/user/verify/`
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: contentjson,
+        body: JSON.stringify({
+            'email': form.email.value,
+            'code': form.code.value
+        })
+    })
+    response.status == 200 ? alert('인증에 성공했습니다') : alert('인증에 실패했습니다')
+}
+
+export async function signUp() {
+    const form = document.getElementById('signup_form')
+    const url = `${BACKEND_URL}/api/user/`
+    if (form.password.value != form.password2.value) {
+        alert('비밀번호가 일치하지 않습니다')
+        return
+    }
+    else{
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: contentjson,
+            body: JSON.stringify({
+                'email': form.email.value,
+                'password': form.password.value,
+                'nickname': form.nickname.value,
+            })
+        })
+        response.status == 201 ? window.location.href = '/subpages/login/login.html' : alert('회원가입에 실패했습니다')
+    }
+}
+
+export async function logOut() {
+    localStorage.removeItem('refresh')
+    localStorage.removeItem('access')
+    localStorage.removeItem('payload')
 }
