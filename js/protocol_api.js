@@ -136,6 +136,15 @@ export async function sendCode() {
             body: JSON.stringify(body)
         })
         if (response.status == 200) {
+            const response_json = await response.json()
+            localStorage.setItem('refresh', response_json.refresh)
+            localStorage.setItem('access', response_json.access)
+            const base64Url = response_json.access.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''))
+            localStorage.setItem('payload', jsonPayload)
             window.location.href = urlWithoutQuery
         }
     }
@@ -190,20 +199,32 @@ export async function codeCheck(){
             'code': form.code.value
         })
     })
-    console.log(await response.json())
+    response.status == 200 ? alert('인증에 성공했습니다') : alert('인증에 실패했습니다')
 }
 
 export async function signUp() {
     const form = document.getElementById('signup_form')
     const url = `${BACKEND_URL}/api/user/`
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: contentjson,
-        body: JSON.stringify({
-            'email': form.email.value,
-            'password': form.password.value,
-            'nickname': form.nickname.value,
+    if (form.password.value != form.password2.value) {
+        alert('비밀번호가 일치하지 않습니다')
+        return
+    }
+    else{
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: contentjson,
+            body: JSON.stringify({
+                'email': form.email.value,
+                'password': form.password.value,
+                'nickname': form.nickname.value,
+            })
         })
-    })
-    console.log(await response.json())
+        response.status == 201 ? window.location.href = '/subpages/login/login.html' : alert('회원가입에 실패했습니다')
+    }
+}
+
+export async function logOut() {
+    localStorage.removeItem('refresh')
+    localStorage.removeItem('access')
+    localStorage.removeItem('payload')
 }
