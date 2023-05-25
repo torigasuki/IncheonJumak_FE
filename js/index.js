@@ -44,7 +44,7 @@ async function EventDetailShow(id) {
 }
 
 // 전통주 목록 조회
-async function AlcholShow(page_num) {
+export async function AlcholShow(page_num) {
     let url = ''
     if (page_num == undefined) {
         url = `${BACKEND_API}/alchol/`
@@ -102,7 +102,7 @@ async function AlcholShow(page_num) {
 }
 
 // 전통주 디테일 페이지로 이동 //////////////////////////구현해야 함
-async function AlcholDetailShow(page_num) {
+export async function AlcholDetailShow(page_num) {
     const response = await fetch(`${BACKEND_API}/alchol/?page=${page_num}/`, {
         method: "GET",
     });
