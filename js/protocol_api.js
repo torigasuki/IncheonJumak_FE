@@ -1,4 +1,4 @@
-const BACKEND_URL = 'http://localhost:8000'
+const BACKEND_URL = 'http://127.0.0.1:8000'
 const contentjson = { 'Content-Type': 'application/json' }
 export async function navBar() {
     const response = await fetch('/navbar.html')
@@ -159,23 +159,23 @@ function countdown() {
     const timer = document.getElementById('verify_count')
     timer.style.display = 'inline'
     var count = 10
-  
+
     var interval = setInterval(function() {
         var minutes = Math.floor(count / 60); 
         var seconds = count % 60;
     
         timer.innerText = minutes + ': ' + seconds;
     
-  
-      count--; // 1초 감소
-  
-      if (count < 0) {
-        clearInterval(interval); // 카운트다운 종료
-        console.log("Countdown Complete!"); // 종료 메시지 출력
-      }
+
+        count--; // 1초 감소
+
+        if (count < 0) {
+            clearInterval(interval); // 카운트다운 종료
+            console.log("Countdown Complete!"); // 종료 메시지 출력
+        }
     }, 1000); // 1초마다 실행
-  }
-  
+}
+
 
 
 
