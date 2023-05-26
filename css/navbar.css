@@ -4,7 +4,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    background: #202540;
+    background: #79B3C7;
 }
 
 #header .header-member {
@@ -87,7 +87,7 @@
 /* ----------------------- footer ----------------------- */
 /* ----------------------- footer ----------------------- */
 
-.footer {
+/* .footer {
     display: block;
     flex-direction: row;
     align-items: center;
@@ -128,4 +128,23 @@
 
 .team-member-name:hover {
     color: white;
-}
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
