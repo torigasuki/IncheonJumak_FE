@@ -41,7 +41,6 @@
 
 #header .header-logo{
     position: relative;
-    margin-top: -10px;
 }
 
 #header .header-top .header-gnb{
@@ -101,6 +100,17 @@
 }
 
 
+
+
+
+.team-member-name:hover {
+    color: white;
+}
+
+.my_gradient_1 {
+    background-image: linear-gradient(to top, rgb(171, 190, 179), rgb(150, 186, 187));
+    height: 500px;
+}
 
 
 
