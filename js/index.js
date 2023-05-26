@@ -1,8 +1,8 @@
-import {navBar,sendCode} from './protocol_api.js'
+import {navBar,sendCode,logOut} from './protocol_api.js'
 import { injectNavbar, injectFooter } from './navbar.js'
 
-const BACKEND_API = "http://127.0.0.1:8000";
-const FRONTEND_API = "http://127.0.0.1:5500";
+const BACKEND_API = "https://api.sw-iing.com";
+const FRONTEND_API = "https://sw-iing.com";
 
 window.onload = async () => {
     await injectNavbar();
