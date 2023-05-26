@@ -4,7 +4,8 @@
     left: 0;
     top: 0;
     width: 100%;
-    background: #202540;
+    /* background: #202540; */
+    background-image: linear-gradient(to bottom, rgb(121, 179, 199), rgb(150, 186, 187));
 }
 
 #header .header-member {
@@ -115,7 +116,8 @@
 }
 
 .team-member > a > img {
-    width: 25px;
+    width: 24px;
+    height: 24px;
 }
 
 .team-member-name {
@@ -128,3 +130,28 @@
 .team-member-name:hover {
     color: white;
 }
+
+.my_gradient_1 {
+    background-image: linear-gradient(to top, rgb(171, 190, 179), rgb(150, 186, 187));
+    height: 500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
