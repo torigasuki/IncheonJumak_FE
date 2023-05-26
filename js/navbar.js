@@ -41,3 +41,9 @@ export async function injectFooter() {
     let data = await navbarhtml.text()
     document.querySelector("footer").innerhTML = data;
 }
+
+
+
+
+
+
