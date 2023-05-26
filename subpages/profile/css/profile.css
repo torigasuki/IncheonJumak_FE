@@ -4,7 +4,7 @@ body {
     font-family: 'Roboto Slab', serif;
     background-color: rgb(245, 245, 245);
 }
-
+/* 
 .main-header {
     display: flex;
     flex-direction: row;
@@ -12,57 +12,9 @@ body {
     height: 180px;
     align-items: center;
     background-color: rgb(32, 37, 64); 
-    /* 메인색상 #202540 */
-
 }
+ */
 
-.footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 150px;
-    align-items: center;
-    background-color: rgb(87, 96, 156); 
-
-}
-
-.header-logo {
-    border: none;
-    background: inherit;
-    font-size: 14px;
-    font-family: inherit;
-    padding: 8px;
-    margin-left: 25px;
-    cursor: pointer;
-}
-
-.header-logo img {
-    width: 120px;
-    height: 100%;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-.header-btn {
-    margin-right: 25px;
-    margin-left: 25px;
-}
-
-.header-btn button {
-    border: none;
-    background: inherit;
-    font-size: 20px;
-    font-family: inherit;
-    padding: 8px;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-}
-
-.header-btn button:hover {
-    background-color: antiquewhite;
-    border-radius: 8px;
-    color: rgb(35, 35, 35);
-}
 
 .main-container {
     margin: 35px 25px 25px 25px;
@@ -72,16 +24,29 @@ body {
 }
 
 .user-information {
-    display: flex;
     justify-content: center;
     padding: 15px;
+    align-items: center
+}
+
+.bookmark-box {
+    clear: both;
+}
+
+.follower-box {
+    clear: both;
+}
+
+.following-box {
+    clear: both;
+}
+
+.review-box {
+    clear: both;
 }
 
 
-
 /* 유저 프로필 */
-
-
 
 .user-info {
     margin-top: 20px;

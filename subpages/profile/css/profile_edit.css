@@ -82,6 +82,8 @@ body {
 .user-image {
     display: flex;
     float: right;
+    width: 350px;
+    height: 350px;
 }
 
 .profile_image {
