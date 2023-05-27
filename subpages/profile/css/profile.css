@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', serif;
+    background-color: rgb(245, 245, 245);
+}
+/* 
+.main-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 180px;
+    align-items: center;
+    background-color: rgb(32, 37, 64); 
+}
+ */
+
+
+.main-container {
+    margin: 35px 25px 25px 25px;
+    padding: 16px;
+    border: 1px solid rgb(222, 220, 220);
+    border-radius: 8px;
+}
+
+.user-information {
+    justify-content: center;
+    padding: 15px;
+    align-items: center
+}
+
+.bookmark-box {
+    clear: both;
+}
+
+.follower-box {
+    clear: both;
+}
+
+.following-box {
+    clear: both;
+}
+
+.review-box {
+    clear: both;
+}
+
+
+/* 유저 프로필 */
+
+.user-info {
+    margin-top: 20px;
+}
+.image-box {
+    padding-bottom: 20 px;
+    width: 350px;
+    height: 350px;
+    border-radius: 1px solid rgb(222, 220, 220);
+}
