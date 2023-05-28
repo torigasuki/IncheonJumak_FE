@@ -1,7 +1,7 @@
-import { injectNavbar, injectFooter } from '../../../js/navbar.js'
+import { injectNavbar, injectFooter } from '../../../js/protocol_api.js'
 
-const BACKEND_API = "https://api.sw-iing.com";
-const FRONTEND_API = "https://sw-iing.com";
+const BACKEND_API = "http://127.0.0.1:8000";
+const FRONTEND_API = "http://127.0.0.1:5500";
 
 window.onload = async () => {
     await injectNavbar();
@@ -57,14 +57,16 @@ async function BreweryCategoryShow(category) {
             experience = 'O'
         }
         
-        brewery_category_list.innerHTML += `<div class="brewery" onclick="BreweryDetailShow(${id})">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
-                                    <div class="brewery-card">
-                                        <span class="brewery-name">${name}</span>
-                                        <span class="brewery-region">[${region}]</span>
-                                        <span class="brewery-res">식당 여부 : ${restaurant}</span>
-                                        <span class="brewery-exp">체험 여부 : ${experience}</span>
-                                    </div>
+        brewery_category_list.innerHTML += `<div class="brewery">
+                                    <a href="/subpages/detail/brew_detail.html?id=${id}">
+                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                                        <div class="brewery-card">
+                                            <span class="brewery-name">${name}</span>
+                                            <span class="brewery-region">[${region}]</span>
+                                            <span class="brewery-res">식당 여부 : ${restaurant}</span>
+                                            <span class="brewery-exp">체험 여부 : ${experience}</span>
+                                        </div>
+                                    </a>
                                 </div>`
     })
 }

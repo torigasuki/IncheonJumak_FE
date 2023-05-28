@@ -1,10 +1,46 @@
-.cate_title{
+/*.cate_title{
     font-size: 25px;
     margin: auto;
     color: darkgoldenrod;
+}*/
+
+main {
+    width: 1200px;
+    margin: auto;
 }
 
-.image_JM{
+section {
+    margin-top: 250px;
+}
+
+.main-container {
+    margin-top: -100px;
+}
+
+.card-title {
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-title > span {
+    font-size: 28px; 
+    margin: auto;
+}
+
+.card-detail {    
+    height: 300px;
+    background-color: lightsteelblue;
+    padding: 16px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 8px;
+}
+
+/* .image_JM{
     width: 40%;
     max-width: 40%;
     height: auto;
@@ -32,21 +68,31 @@
     border: 2px solid #ccc;
     padding: 10px;
     overflow: auto;
-  }
+}
 
 .typed-text {
     font-family: monospace;
     font-size: 14px;
     white-space: pre-wrap;
     word-wrap: break-word;
-  }
+}
 
-/* .button-rightJM {
+.button-rightJM {
     background-color: yellow;
     border-radius: 8%;
     font-size: 50%;
     margin: 0 0 0 auto;
 } */
+
+/*************************** review ***************************/
+/*************************** review ***************************/
+/*************************** review ***************************/
+/*************************** review ***************************/
+/*************************** review ***************************/
+
+.review-container {
+    margin-bottom: 100px;
+}
 
 .column-JM{
     display: flex;
@@ -71,7 +117,12 @@
     padding: 10px;
     overflow: auto;
     margin: 5px 15% 5px 15%;
-  }
+}
+
+.typing-review > input {
+    border-style: none;
+    width: 100%;
+}
 
 /* .line_JM {
     display: flex;

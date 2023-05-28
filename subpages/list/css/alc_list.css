@@ -6,7 +6,7 @@ body {
 }
 
 main {
-    width: 1800px;
+    width: 1200px;
     margin: 0 auto;
 }
 
@@ -91,6 +91,10 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.alchol-card > span {
+    color: white;
 }
 
 .alchol-name {
@@ -196,7 +200,9 @@ main {
     text-align: center;
     display: block;
     float: left;
+    cursor: pointer;
 }
+
 ul > li {
     list-style-type: none;
 }

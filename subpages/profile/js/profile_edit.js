@@ -1,44 +1,41 @@
+import { injectNavbar, injectFooter } from '../../../js/protocol_api.js'
+
 const backend_base_url = "http://127.0.0.1:8000"
 const frontend_base_url = "http://127.0.0.1:5500"
-const access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg4MDA0MTA2LCJpYXQiOjE2ODUwMDQxMDYsImp0aSI6IjhjZDQ1ZjJiZjk3MzQ4NDhhMDA5NGU1MTg3YjNhMGUxIiwidXNlcl9pZCI6MTMsImVtYWlsIjoidGVzdDVAdGVzdC5jb20iLCJuaWNrbmFtZSI6InRlc3QzNSJ9.42rLq6yFa8RjmvbPWtkb3W0U0axRDFzp4SFCUtmzhnw"
-import { injectNavbar, injectFooter } from '../../../js/navbar.js'
-
+const access_token = localStorage.getItem('access')
 
 window.onload = async () => {
     await injectNavbar();
     await injectFooter();
-
-    await getProfile();
+    getProfile();
+    document.getElementById('profileedit').addEventListener('click', handleEdit)
 }
 
-
-
-
 async function getProfile() {
-
     const response_json = await fetch(`${backend_base_url}/api/user/profile/`, {
         method: 'GET',
         headers: {
-            // 토큰넣기! 토큰값을 저장해두고 보내주기
             Authorization : `Bearer ${access_token}`
         } 
     }
     ).then(response => {return response.json()}).then(async data => {
-
         console.log(data)
         const email = document.getElementById('email')
         const nickname = document.getElementById('nickname')
-        const introduction = document.getElementById('introduction')
-        const profile_image = document.getElementById('profile_image')
-        
-        email.innerText = data.user['email']
-        nickname.innerText = data.user['nickname']
-        introduction.innerText = data.user['introduction']
-        profile_image.src = `${backend_base_url}` + response_json['profile_image']
+        email.innerText = data.user.email
+        nickname.innerText = data.user.nickname
 
+        const introduction = document.getElementById('introduction')      
+        if (data.profile.introduction == undefined) {
+            introduction.innerText = ""
+        } else {
+            introduction.innerText = data.profile.introduction
+        }
+
+        const profile_image = document.getElementById('profile_image')        
+        profile_image.src = `${backend_base_url}` + data.profile.profileimage
     })
 }
-
 
 function preview(input) {
     if (input.files && input.files[0]) {
@@ -55,36 +52,22 @@ function preview(input) {
 
 
 async function handleEdit() {
-    const response = await fetch(`${backend_base_url}/api/user/profile/`, {
-        method: 'POST',
-        headers: {
-            Authorization : `Bearer ${access_token}`
-        } 
-    })
-    response_json = await response.json()
-
-    const email = response_json['email']
-    const password = response_json['password']
-    const nickname = document.getElementById('nickname').value;
     const introduction = document.getElementById('introduction').value;
-    const profile_image = document.getElementById('profile_image').src;
-
-
+    let image = document.querySelector('#profileimage');
+    let profile_image = image.files[0]; 
+    let formData = new FormData()
+    if (profile_image) {
+        formData.append('profileimage', profile_image)
+    }
+    formData.append('introduction', introduction)
     const response_edit = await fetch(`${backend_base_url}/api/user/profile/`, {
         headers: {
             'Authorization':  `Bearer ${access_token}`,
-            'content-type': 'application/json',
         },
         method: 'PUT',
-        body: JSON.stringify({
-            "email": email,
-            "password": password,
-            "nickname": nickname,
-            "introduction": introduction,
-            "profile_image": profile_image
-        })
+        body: formData
     })
-    console.log(response_edit)
+    
     location.href = 'profile.html'
 
 }

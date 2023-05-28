@@ -49,10 +49,10 @@ main {
     cursor: pointer;
 }
 
-.event > img {
+.event > a > img {
     display: flex;
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 600px;
     object-fit: cover;
     opacity: 0.5;
 }
