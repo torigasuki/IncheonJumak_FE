@@ -1,5 +1,12 @@
+main {
+    width: 1200px;
+    margin: auto;
+    margin-top: 250px;
+    margin-bottom: 100px;
+}
+
 .first_button{
-    margin: 60px 0 30px 5%;
+    margin: 180px 0 30px 5%;
 }
 
 .card_wrapJM{
@@ -27,6 +34,10 @@
     margin-right: 15%; /* 마지막 자식 요소에는 마진을 적용하지 않음 */
 }
 
+.review-container {
+    margin-bottom: 100px;
+}
+
 .typing-review {
     width: 70%;
     max-width: 100%;
@@ -35,4 +46,40 @@
     padding: 10px;
     overflow: auto;
     margin: 5px 15% 5px 15%;
-  }
+}
+
+.typing-review > input {
+    border-style: none;
+    width: 100%;
+}
+
+
+/*--------- main 내용 css ----------*/
+/*--------- main 내용 css ----------*/
+/*--------- main 내용 css ----------*/
+
+.brewery-information{
+    margin: 30px 150px 30px 150px;
+}
+
+#image-box {
+    width: auto;
+    height: 400px;
+
+}
+
+#image-box img {
+    display:block;
+    width: 1000px;
+    height:auto;
+    margin: auto;
+}
+
+.brewery-box {
+    margin-top: 10px;
+    padding: 40px;
+}
+
+.brew-info-box {
+    margin-top: 30px;
+}

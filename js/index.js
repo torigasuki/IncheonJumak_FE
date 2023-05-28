@@ -1,5 +1,4 @@
-import {navBar,sendCode} from './protocol_api.js'
-import { injectNavbar, injectFooter } from './navbar.js'
+import {navBar,sendCode,injectNavbar, injectFooter} from './protocol_api.js'
 
 const BACKEND_API = "http://127.0.0.1:8000";
 const FRONTEND_API = "http://127.0.0.1:5500";
@@ -23,24 +22,14 @@ async function EventShow() {
 
     const event_list = document.getElementById('event-list-text')
 
-    response_json['results'].forEach(e => {
+    response_json.forEach(e => {
         const id = e.id
         const name = e.eventname
         const region = e.region
 
-        event_list.innerHTML += `<a onclick="EventDetailShow(${id})">[${region}] ${name}</a>`
+        event_list.innerHTML += `<a href="/subpages/detail/eve_detail.html?id=${id}">[${region}] ${name}</a>`
 
     })
-}
-
-// 이벤트 디테일 페이지로 이동 //////////////////////////구현해야 함
-async function EventDetailShow(id) {
-    const response = await fetch(`${BACKEND_API}/event/${id}/`, {
-        method: "GET",
-    });
-
-    const response_json = await response.json()
-
 }
 
 // 전통주 목록 조회
@@ -60,19 +49,21 @@ export async function AlcholShow(page_num) {
 
     alchol_list.innerHTML = ''
 
-    response_json['results'].forEach(e => {
+    response_json.results.forEach(e => {
         const id = e.id
         const name = e.name
         const sort = e.sort
         const beverage = e.beverage
         const image = e.image
 
-        alchol_list.innerHTML += `<div class="card" onclick="AlcholDetailShow(${id})">
-                                    <img src="${BACKEND_API}${image}">
-                                    <div class="alchol-card">
-                                        <span class="alchol-name">${name}</span>
-                                        <span class="alchol-desc">${sort} / ${beverage}도</span>
-                                    </div>
+        alchol_list.innerHTML += `<div class="card">
+                                    <a href="/subpages/detail/alc_detail.html?id=${id}">
+                                        <img src="${BACKEND_API}${image}">
+                                        <div class="alchol-card">
+                                            <span class="alchol-name">${name}</span>
+                                            <span class="alchol-desc">${sort} / ${beverage}도</span>
+                                        </div>
+                                    </a>
                                 </div>`
     })
 
@@ -99,16 +90,6 @@ export async function AlcholShow(page_num) {
             }
         }
     }
-}
-
-// 전통주 디테일 페이지로 이동 //////////////////////////구현해야 함
-export async function AlcholDetailShow(page_num) {
-    const response = await fetch(`${BACKEND_API}/alchol/?page=${page_num}/`, {
-        method: "GET",
-    });
-
-    const response_json = await response.json()
-
 }
 
 // 양조장 목록 조회
@@ -143,15 +124,17 @@ async function BreweryShow(page_num) {
             experience = 'O'
         }
         
-        brewery_list.innerHTML += `<div class="brewery" onclick="BreweryDetailShow(${id})">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
-                                    <div class="brewery-card">
-                                        <span class="brewery-name">${name}</span>
-                                        <span class="brewery-region">[${region}]</span>
-                                        <span class="brewery-res">식당 여부 : ${restaurant}</span>
-                                        <span class="brewery-exp">체험 여부 : ${experience}</span>
-                                    </div>
-                                </div>`
+        brewery_list.innerHTML += `<div class="brewery">
+                                        <a href="/subpages/detail/brew_detail.html?id=${id}">
+                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                                            <div class="brewery-card">
+                                                <span class="brewery-name">${name}</span>
+                                                <span class="brewery-region">[${region}]</span>
+                                                <span class="brewery-res">식당 여부 : ${restaurant}</span>
+                                                <span class="brewery-exp">체험 여부 : ${experience}</span>
+                                            </div>
+                                        </a>
+                                    </div>`
     })
 
     if (response_json.count > 4 && response_json.next != null) {
@@ -177,15 +160,4 @@ async function BreweryShow(page_num) {
             }
         }
     }
-}
-
-// 양조장 디테일 페이지로 이동 //////////////////////////구현해야 함
-async function BreweryDetailShow(page_num) {
-    const response = await fetch(`${BACKEND_API}/brewery/?page=${page_num}/`, {
-        method: "GET",
-    });
-
-    const response_json = await response.json()
-    console.log(response_json)
-
 }

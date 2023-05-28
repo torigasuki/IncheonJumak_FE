@@ -1,4 +1,4 @@
-import { injectNavbar, injectFooter } from '../../../js/navbar.js'
+import { injectNavbar, injectFooter } from '../../../js/protocol_api.js'
 
 const BACKEND_API = "http://127.0.0.1:8000";
 const FRONTEND_API = "http://127.0.0.1:5500";
@@ -19,7 +19,7 @@ async function EventCategoryShow(category) {
 
     const event_list = document.getElementById('event-card-list')
 
-    response_json['results'].forEach(e => {
+    response_json.forEach(e => {
         const id = e.id
         const name = e.eventname
         const region = e.region
@@ -30,8 +30,11 @@ async function EventCategoryShow(category) {
         
         event_list.innerHTML += `<div class="event-container" onclick="EventDetailShow(${id})">
                                     <div class="event">
-                                        <img
-                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                                        <a href="/subpages/detail/eve_detail.html?id=${id}">
+                                            <img
+                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s">
+                                            </img>
+                                        </a>
                                     </div>
                                     <div class="event-desc">
                                         <span class="event-name">${name}</span>
