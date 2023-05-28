@@ -1,6 +1,16 @@
+@font-face {
+  font-family: 'SangSangRock';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: #f8fafb; }
+  margin: 0;
+  padding: 0;
+  font-family: 'SangSangRock';
+  background-color: rgb(245, 245, 245);
+}
 
 p {
   color: #b3b3b3;
@@ -8,7 +18,7 @@ p {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: "Roboto", sans-serif; }
+  font-family: "SangSangRock"; }
 
 a {
   -webkit-transition: .3s all ease;

@@ -1,8 +1,8 @@
 
 import { injectNavbar, injectFooter } from './../../../js/protocol_api.js'
 
-const backend_base_url = "http://127.0.0.1:8000"
-const frontend_base_url = "http://127.0.0.1:5500"
+const backend_base_url = "https://api.sw-iing.com"
+const frontend_base_url = "https://sw-iing.com"
 const access_token = localStorage.getItem('access')
 
 window.onload = async () => {
@@ -14,18 +14,7 @@ window.onload = async () => {
     })
 }
 
-// 날짜 연-월-일 순 정렬
-// const reviewUpdatedAt = document.createElement('a')
-// reviewUpdatedAt.setAttribute('class', 'review_title')
-// const newYearMonthDate = new Date(e['updated_at']);
-// const year = newYearMonthDate.getFullYear();
-// const month = newYearMonthDate.getMonth() + 1;
-// const date = newYearMonthDate.getDate();
-// const updateDate= (`${year}-${month >= 10 ? month : '0' + month}-${date >= 10 ? date : '0' + date}`)
-
-// reviewTitle.innerText = `${e['content']} ${updateDate}`
-
-// 행사 상세내용 가져오기 //////////수정 중//////////
+// 행사 상세내용 가져오기
 async function eventDetailInfoShow(){
     const urlParams = new URL(location.href).searchParams;
     const event_id = urlParams.get('id');
@@ -33,8 +22,6 @@ async function eventDetailInfoShow(){
         method: 'GET',
     })
     const response_json = await response.json()
-    console.log(response_json)
-
     if (response_json.event.image != null) {
         const imageCard = document.getElementById('image-box')
         const eventImage = document.createElement('img')
@@ -48,7 +35,6 @@ async function eventDetailInfoShow(){
         eventImage.setAttribute('alt', 'event-image')
         eventImage.setAttribute('src', "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2lYEMFENrL7sVziTSqx3Nc4XyfifJnX2s4MtOldxUGw&s")
         imageCard.appendChild(eventImage)
-
     }
 
     const newName = document.getElementById('name')
@@ -71,6 +57,11 @@ async function eventDetailInfoShow(){
     end.innerText = response_json.event.ended_at.split('T')[0] +' '+ response_json.event.ended_at.split('T')[1].split('+')[0]
     newEnd.appendChild(end)
 
+    const newAlchol = document.getElementById('region_drink')
+    const alchol = document.createElement('p')
+    alchol.innerText = response_json.event.alchol_name
+    newAlchol.appendChild(alchol)
+
     const review_list = document.getElementById('review-list')
     response_json.reviews.forEach(review => {
         const content = review.content 
@@ -89,7 +80,6 @@ async function eventDetailInfoShow(){
         delete_review.innerText = '리뷰 삭제'
         column_JM.appendChild(delete_review)
         document.getElementById(`delete_review${id}`).addEventListener('click',()=>{
-            console.log(id)
             deleteReview(id)
         })
     })
@@ -97,13 +87,11 @@ async function eventDetailInfoShow(){
 
 // 리뷰 등록
 async function reviewupload() {
-    // 요청할 데이터 생성
     const review = document.getElementById('review').value
     var data = {
         "content": review
     };
 
-    // POST 요청 설정
     var requestOptions = {
         method: 'POST',
         headers: {
@@ -116,18 +104,16 @@ async function reviewupload() {
     const urlParams = new URL(location.href).searchParams;
     const event_id = urlParams.get('id');
 
-    // fetch를 사용하여 요청 보내기
     fetch(`http://127.0.0.1:8000/review/event/${event_id}/`, requestOptions)
         .then(response => {
-            console.log(response)
             if (response.ok) {
-                console.log("리뷰가 성공적으로 전송되었습니다.");
+                alert("리뷰가 성공적으로 전송되었습니다.");
             } else {
-                console.error("리뷰 전송에 실패했습니다.");
+                alert("리뷰 전송에 실패했습니다.");
             }
         })
         .catch(error => {
-        console.error("오류 발생:", error);
+            alert("오류 발생:", error);
         });
         location.reload()
     }

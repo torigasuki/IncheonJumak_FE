@@ -1,5 +1,5 @@
-const BACKEND_URL = 'http://127.0.0.1:8000'
-const FRONTEND_API = "http://127.0.0.1:5500";
+const BACKEND_URL = 'https://api.sw-iing.com'
+const FRONTEND_API = "https://sw-iing.com";
 const contentjson = { 'Content-Type': 'application/json' }
 
 export async function navBar() {
@@ -229,15 +229,9 @@ export async function signUp() {
 
 
 export async function injectNavbar() {
-    fetch(`${FRONTEND_API}/navbar.html`).then(response => {
-        return response.text()
-    }).then(data => {
-        document.querySelector("header").innerHTML = data;
-    })
-
     let navbarhtml = await fetch(`${FRONTEND_API}/navbar.html`)
     let data = await navbarhtml.text()
-    document.querySelector("header").innerhTML = data;
+    document.querySelector("header").innerHTML = data;
 
     const payload = localStorage.getItem('payload');
 
@@ -259,24 +253,20 @@ export async function injectNavbar() {
     })
 }
 
-
-function logOut() {
-    localStorage.removeItem('refresh')
-    localStorage.removeItem('access')
-    localStorage.removeItem('payload')
-    window.location.reload()
-}
-
-
 export async function injectFooter() {
     fetch(`${FRONTEND_API}/footer.html`).then(response => {
         return response.text()
     }).then(data => {
         document.querySelector("footer").innerHTML = data;
     })
+}
 
-    let navbarhtml = await fetch(`${FRONTEND_API}/footer.html`)
-    let data = await navbarhtml.text()
-    document.querySelector("footer").innerhTML = data;
+
+
+function logOut() {
+    localStorage.removeItem('refresh')
+    localStorage.removeItem('access')
+    localStorage.removeItem('payload')
+    window.location.reload()
 }
 

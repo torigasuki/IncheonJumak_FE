@@ -1,7 +1,7 @@
 import { injectNavbar, injectFooter } from './../../../js/protocol_api.js'
 
-const backend_base_url = "http://127.0.0.1:8000"
-const frontend_base_url = "http://127.0.0.1:5500"
+const backend_base_url = "https://api.sw-iing.com"
+const frontend_base_url = "https://sw-iing.com"
 const access_token = localStorage.getItem('access')
 
 window.onload = async () => {
@@ -13,7 +13,7 @@ window.onload = async () => {
   })
 }
 
-// 양조장 상세내용 가져오기 //////////수정 중//////////
+// 양조장 상세내용 가져오기
 async function breweryDetailInfoShow(){
   const urlParams = new URL(location.href).searchParams;
   const brewery_id = urlParams.get('id');
@@ -21,7 +21,6 @@ async function breweryDetailInfoShow(){
     method: 'GET',
   })
   const response_json = await response.json()
-  console.log(response_json)
 
   if (response_json.brewery.image != null) {
     const imageCard = document.getElementById('image-box')
@@ -29,7 +28,13 @@ async function breweryDetailInfoShow(){
     breweryImage.setAttribute('class', 'brewery-image')
     breweryImage.setAttribute('src', `https://api.sw-iing.com/${response_json.brewery.image}`)
     imageCard.appendChild(breweryImage)
-  }
+  } else {
+    const imageCard = document.getElementById('image-box')
+    const breweryImage = document.createElement('img')
+    breweryImage.setAttribute('alt', 'event-image')
+    breweryImage.setAttribute('src', "./img/la_brewery.webp")
+    imageCard.appendChild(breweryImage)
+}
 
   const newName = document.getElementById('name')
   const Name = document.createElement('p')
@@ -71,43 +76,39 @@ async function breweryDetailInfoShow(){
 
   const newAlcholName = document.getElementById('alchol')
   const alcholName = document.createElement('p')
-  alcholName.setAttribute('onclick', `location.href="alc_detail?id=${response_json.brewery.alchol}"`)
   alcholName.innerText = response_json.brewery.alchol_name
   newAlcholName.appendChild(alcholName)
 
   const review_list = document.getElementById('review-list')
   response_json.reviews.forEach(review => {
     const content = review.content 
-      const id = review.id 
-      const column_JM = document.createElement('div')
-      column_JM.setAttribute('class', 'column-JM')
-      review_list.appendChild(column_JM)
-      const typing_review = document.createElement('div')
-      typing_review.setAttribute('class', 'typing-review')
-      typing_review.innerText = content
-      column_JM.appendChild(typing_review)
-      const delete_review = document.createElement('button')
-      delete_review.setAttribute('type', 'button')
-      delete_review.setAttribute('class', 'btn btn-info')
-      delete_review.setAttribute('id', `delete_review${id}`)
-      delete_review.innerText = '리뷰 삭제'
-      column_JM.appendChild(delete_review)
-      document.getElementById(`delete_review${id}`).addEventListener('click',()=>{
-        console.log(id)
-        deleteReview(id)
+    const id = review.id 
+    const column_JM = document.createElement('div')
+    column_JM.setAttribute('class', 'column-JM')
+    review_list.appendChild(column_JM)
+    const typing_review = document.createElement('div')
+    typing_review.setAttribute('class', 'typing-review')
+    typing_review.innerText = content
+    column_JM.appendChild(typing_review)
+    const delete_review = document.createElement('button')
+    delete_review.setAttribute('type', 'button')
+    delete_review.setAttribute('class', 'btn btn-info')
+    delete_review.setAttribute('id', `delete_review${id}`)
+    delete_review.innerText = '리뷰 삭제'
+    column_JM.appendChild(delete_review)
+    document.getElementById(`delete_review${id}`).addEventListener('click',()=>{
+      deleteReview(id)
     }) 
   })
 }
 
 // 리뷰 등록
 async function reviewupload() {
-  // 요청할 데이터 생성
   const review = document.getElementById('review').value
   var data = {
     "content": review
   };
 
-  // POST 요청 설정
   var requestOptions = {
     method: 'POST',
     headers: {
@@ -120,18 +121,16 @@ async function reviewupload() {
   const urlParams = new URL(location.href).searchParams;
   const brewery_id = urlParams.get('id');
 
-  // fetch를 사용하여 요청 보내기
   fetch(`http://127.0.0.1:8000/review/brewery/${brewery_id}/`, requestOptions)
     .then(response => {
-      console.log(response)
       if (response.ok) {
-        console.log("리뷰가 성공적으로 전송되었습니다.");
+        alert("리뷰가 성공적으로 작성되었습니다.");
       } else {
-        console.error("리뷰 전송에 실패했습니다.");
+        alert("리뷰 작성에 실패했습니다.");
       }
     })
     .catch(error => {
-      console.error("오류 발생:", error);
+      alert("오류 발생:", error);
     });
     location.reload()
 }

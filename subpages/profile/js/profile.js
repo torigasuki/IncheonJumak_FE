@@ -1,7 +1,7 @@
 import { injectNavbar, injectFooter } from '../../../js/protocol_api.js'
 
-const backend_base_url = "http://127.0.0.1:8000"
-const frontend_base_url = "http://127.0.0.1:5500"
+const backend_base_url = "https://api.sw-iing.com"
+const frontend_base_url = "https://sw-iing.com"
 const access_token = localStorage.getItem('access')
 
 window.onload = async () =>  {
@@ -19,8 +19,6 @@ async function getProfile() {
         } 
     }
     ).then(response => {return response.json()}).then(data => {
-
-        console.log(data)
         
         const profile_image = document.getElementById('profile_image')
         const email = document.getElementById('email')
@@ -56,8 +54,6 @@ async function getProfile() {
                 newCardBody.setAttribute("class", "card-body cols")
                 bookmark.appendChild(newCardBody)
                 newCardBody.setAttribute('style', 'float:left; background-color: white; padding: 5px; border-radius:5px;')
-                // alchol 페이지로 이동
-                // newCardBody.setAttribute('onclick','location.href=`${frontend_base_url}/alcholdetail.html?id=${alchol_id}`')
                 
                 if (e.image == null){
                     const newBookmarkImage = document.createElement('img')
@@ -117,12 +113,11 @@ async function getProfile() {
             no_follower.innerText = '팔로워가 없습니다.'
             follower.appendChild(no_follower)
 
-        }
-        else{
+        }else{
             response_follower = data.user.follower
             response_follower.forEach(element => {
                 const follower = document.getElementById('follower')
-                const followerUser = document.createElement('a')
+                const followerUser = document.createElement('p')
                 followerUser.setAttribute('class', 'user_nickname')
                 followerUser.setAttribute('style', 'margin-right:20px;')
                 followerUser.setAttribute('onclick', 'location.href=`${frontend_base_url}/profile_shown.html?id=${element.id}`')
@@ -146,11 +141,6 @@ async function getReview(user_id){
         })
     const response_reviews_json = await response_reviews.json()
 
-    console.log(response_reviews_json)
-    // reviews
-    //  {id: 1, content: '21312321', updated_at: '2023-05-27T22:31:20.401934+09:00', table: 'alcohol', user: 20}
-    //  {id: 2, content: 'rrrrrr', updated_at: '2023-05-27T22:31:27.150968+09:00', table: 'alcohol', user: 20}
-
     if (response_reviews_json === null) {
         const reviews = document.getElementById('reviews')
         const reviewTitle = document.createElement('pre')
@@ -163,20 +153,6 @@ async function getReview(user_id){
             newCardBody.setAttribute("class", "card-body")
             newCardBody.setAttribute('style', 'background-color: rgb(245, 245, 245); width: 100%; height: 30px;')
             reviews.appendChild(newCardBody)
-            
-            // if (e.profileimage ==null){ 
-            // const reviewImage = document.createElement('img')
-            // reviewImage.setAttribute('class', 'review_title')
-            // reviewImage.setAttribute("src", "/images/drink_default_image.png")
-            // reviewImage.setAttribute('style', 'width:50px; height:50px; margin-right:20px;')
-            // newCardBody.appendChild(reviewImage)
-            // } else {
-            //     const reviewImage = document.createElement('img')
-            //     reviewImage.setAttribute('class', 'review_title')
-            //     reviewImage.setAttribute("src", `${backend_base_url}` + '/' + `${e.profileimage['image']}`)
-            //     reviewImage.setAttribute('style', 'width:50px; height:50px; margin-right:20px;')
-            //     newCardBody.appendChild(reviewImage)
-            // }
 
             const reviewTitle = document.createElement('a')
             reviewTitle.setAttribute('class', 'review_title')

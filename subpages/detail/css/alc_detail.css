@@ -1,8 +1,14 @@
-/*.cate_title{
-    font-size: 25px;
-    margin: auto;
-    color: darkgoldenrod;
-}*/
+@font-face {
+    font-family: 'SangSangRock';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'SangSangRock';
+    background-color: rgb(245, 245, 245);
+}
 
 main {
     width: 1200px;
@@ -40,56 +46,6 @@ section {
     border-radius: 8px;
 }
 
-/* .image_JM{
-    width: 40%;
-    max-width: 40%;
-    height: auto;
-    margin-left: 10%;
-}
-
-.card_wrapJM{
-    margin: 50px 40px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.card-rowJM {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: column;
-    margin: 10px 80px 0 auto;
-}
-
-.typing-container {
-    width: 600px;
-    max-width: 100%;
-    height: 100px;
-    border: 2px solid #ccc;
-    padding: 10px;
-    overflow: auto;
-}
-
-.typed-text {
-    font-family: monospace;
-    font-size: 14px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
-
-.button-rightJM {
-    background-color: yellow;
-    border-radius: 8%;
-    font-size: 50%;
-    margin: 0 0 0 auto;
-} */
-
-/*************************** review ***************************/
-/*************************** review ***************************/
-/*************************** review ***************************/
-/*************************** review ***************************/
-/*************************** review ***************************/
-
 .review-container {
     margin-bottom: 100px;
 }
@@ -116,16 +72,11 @@ section {
     border: 2px solid #ccc;
     padding: 10px;
     overflow: auto;
-    margin: 5px 15% 5px 15%;
+    margin: 5px 15% 5px 15%;    
 }
 
 .typing-review > input {
     border-style: none;
     width: 100%;
+    background-color: rgb(245, 245, 245);
 }
-
-/* .line_JM {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-} */

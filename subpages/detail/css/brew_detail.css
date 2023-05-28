@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'SangSangRock';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'SangSangRock';
+    background-color: rgb(245, 245, 245);
+}
+
 main {
     width: 1200px;
     margin: auto;
@@ -51,28 +63,29 @@ main {
 .typing-review > input {
     border-style: none;
     width: 100%;
+    background-color: rgb(245, 245, 245);
 }
-
-
-/*--------- main 내용 css ----------*/
-/*--------- main 내용 css ----------*/
-/*--------- main 내용 css ----------*/
 
 .brewery-information{
     margin: 30px 150px 30px 150px;
 }
 
 #image-box {
+    position: relative;
     width: auto;
     height: 400px;
-
+    overflow: hidden;
 }
 
 #image-box img {
+    position: absolute;
     display:block;
-    width: 1000px;
-    height:auto;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     margin: auto;
+    object-fit: cover;
 }
 
 .brewery-box {
