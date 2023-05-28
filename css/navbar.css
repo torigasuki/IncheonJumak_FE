@@ -4,7 +4,8 @@
     left: 0;
     top: 0;
     width: 100%;
-    background: #202540;
+    /* background: #202540; */
+    background-image: linear-gradient(to bottom, rgb(121, 179, 199), rgb(150, 186, 187));
 }
 
 #header .header-member {
@@ -86,45 +87,45 @@
 /* ----------------------- footer ----------------------- */
 /* ----------------------- footer ----------------------- */
 
-.footer {
-    display: block;
-    flex-direction: row;
-    align-items: center;
-    height: 220px;
-    width: 100%;        
-    background-color: rgb(87, 96, 156);
-    position: relative;
-    bottom: 0;
+
+.sosim {
+    padding-top: 5%;
 }
 
-.member-list {
-    padding-top: 15px;
+
+.my_gradient_1 {
+    background-image: linear-gradient(to top, rgb(171, 190, 179), rgb(150, 186, 187));
+    width: 120vw;
+    height: 64vh;
 }
 
-.team-member {
-    width: 200px;
-    margin: auto;
-    display: flex;
-    text-align: center;
-    margin-top: 2px;
-}
 
-.team-member > a {
-    margin: auto;
-    margin-bottom: 2px;
-}
 
-.team-member > a > img {
-    width: 25px;
-}
 
-.team-member-name {
-    font-size: small;
-    color: white;
-    margin-top: 5px !important;
-    text-decoration-line: none;
-}
 
 .team-member-name:hover {
     color: white;
 }
+
+.my_gradient_1 {
+    background-image: linear-gradient(to top, rgb(171, 190, 179), rgb(150, 186, 187));
+    height: 500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
