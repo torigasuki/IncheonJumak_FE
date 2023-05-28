@@ -125,11 +125,6 @@ async function reviewupload() {
     location.reload()
 }
   
-  
-// update 기능 삭제
-// async function putReview(){
-//   const content = document.getElementById('review').value;
-
 async function deleteReview(review_id){
   const response = await fetch(`${backend_base_url}/review/alcoholreview/${review_id}`, {
     method : 'DELETE',
