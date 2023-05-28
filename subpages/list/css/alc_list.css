@@ -1,8 +1,14 @@
+@font-face {
+    font-family: 'SangSangRock';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto Slab', serif;
-    background-color: rgb(255, 255, 255);
+    font-family: 'SangSangRock';
 }
 
 main {
@@ -13,11 +19,6 @@ main {
 .alchol-aria {
     margin-top: 250px;
 }
-
-/* main > .alchol-aria {
-    background-color: rgb(245, 245, 245)
-} */
-
 
 .card-title {
     margin-top: 50px;
@@ -47,7 +48,6 @@ main {
     justify-content: center;
     align-items: center;
     position: relative;
-    /* background-color: rgb(245, 245, 245); */
 }
 
 .card-container > .alchol-list {
@@ -158,7 +158,6 @@ main {
     border-style: none;
     width: 50px;
     height: 50px;
-    /* background-color: rgb(245, 245, 245) */
 }
 
 .pagination-btn-br {
@@ -168,7 +167,6 @@ main {
     border-style: none;
     width: 50px;
     height: 50px;
-    /* background-color: rgb(245, 245, 245) */
 }
 
 .pagination-btn-bl > img {

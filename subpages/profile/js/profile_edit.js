@@ -1,7 +1,7 @@
 import { injectNavbar, injectFooter } from '../../../js/protocol_api.js'
 
-const backend_base_url = "http://127.0.0.1:8000"
-const frontend_base_url = "http://127.0.0.1:5500"
+const backend_base_url = "https://api.sw-iing.com"
+const frontend_base_url = "https://sw-iing.com"
 const access_token = localStorage.getItem('access')
 
 window.onload = async () => {

@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'SangSangRock';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'SangSangRock';
+    background-color: rgb(245, 245, 245);
+}
+
 main {
     width: 1200px;
     margin: auto;
@@ -27,19 +39,19 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* flex-direction: column; */
 }
 
 .column-JM > * {
-    margin-left: 15%; /* 원하는 마진 크기로 조정 */
+    margin-left: 15%;
 }
 
 .column-JM > *:last-child {
-    margin-right: 15%; /* 마지막 자식 요소에는 마진을 적용하지 않음 */
+    margin-right: 15%;
 }
 
 .review-container {
     margin-bottom: 100px;
+    margin-top: 100px;
 }
 
 .typing-review {
@@ -55,6 +67,7 @@ main {
 .typing-review > input {
     border-style: none;
     width: 100%;
+    background-color: rgb(245, 245, 245);
 }
 
 .event-information {
@@ -69,4 +82,8 @@ main {
     width: 420px;
     height: 550px;
     background-color:lightsteelblue;
+}
+
+.image-box > img {
+    width: 100%;
 }

@@ -1,7 +1,7 @@
 import { injectNavbar, injectFooter } from './../../../js/protocol_api.js'
 
-const backend_base_url = "http://127.0.0.1:8000"
-const frontend_base_url = "http://127.0.0.1:5500"
+const backend_base_url = "https://api.sw-iing.com"
+const frontend_base_url = "https://sw-iing.com"
 const access_token = localStorage.getItem('access')
 
 window.onload = async () => {
@@ -21,7 +21,6 @@ async function AlcholDetailInfoShow() {
     method: 'GET',
   })
   const response_json = await response.json()
-  console.log(response_json)
   
   const imageCard = document.getElementById('image-box')
   const alcholImage = document.createElement('img')
@@ -66,7 +65,6 @@ async function AlcholDetailInfoShow() {
     delete_review.innerText = '리뷰 삭제'
     column_JM.appendChild(delete_review)
     document.getElementById(`delete_review${id}`).addEventListener('click',()=>{
-      console.log(id)
       deleteReview(id)
     })
   })
@@ -79,7 +77,6 @@ async function AlcholDetailInfoShow() {
 async function AlcholBookmark() {
   const urlParams = new URL(location.href).searchParams;
   const alchol_id = urlParams.get('id');
-  console.log(alchol_id)
   const response = await fetch(`${backend_base_url}/api/user/${alchol_id}/bookmark/`, {
     method: 'POST',
     headers: {
@@ -87,7 +84,6 @@ async function AlcholBookmark() {
     }
   })
   const response_json = await response.json()
-  console.log(response_json)
   
   $(document).ready(function() {
     $('#bookmarkButton').on('click', function () {
@@ -96,21 +92,13 @@ async function AlcholBookmark() {
   });
 }
 
-
-// 뒤로 가기
-// function backmoving(){
-//     window.location.href = "eventdetail.html";
-// }
-
 // 리뷰 등록
 async function reviewupload() {
-  // 요청할 데이터 생성
   const review = document.getElementById('review').value
   var data = {
     "content": review
   };
 
-  // POST 요청 설정
   var requestOptions = {
     method: 'POST',
     headers: {
@@ -123,18 +111,16 @@ async function reviewupload() {
   const urlParams = new URL(location.href).searchParams;
   const alchol_id = urlParams.get('id');
 
-  // fetch를 사용하여 요청 보내기
-  fetch(`http://127.0.0.1:8000/review/alcohol/${alchol_id}/`, requestOptions)
+  fetch(`${backend_base_url}/review/alcohol/${alchol_id}/`, requestOptions)
     .then(response => {
-      console.log(response)
       if (response.ok) {
-        console.log("리뷰가 성공적으로 전송되었습니다.");
+        alert("리뷰가 성공적으로 전송되었습니다.");
       } else {
-        console.error("리뷰 전송에 실패했습니다.");
+        alert("리뷰 전송에 실패했습니다.");
       }
     })
     .catch(error => {
-      console.error("오류 발생:", error);
+      alert("오류 발생", error);
     });
     location.reload()
 }
@@ -144,21 +130,6 @@ async function reviewupload() {
 // async function putReview(){
 //   const content = document.getElementById('review').value;
 
-//   const response = await fetch(`${backend_base_url}/review/alcohol/${review_id}/`, {
-//     headers: {
-//         'Authorization': `Bearer ${access_token}`,
-//         'content-type': 'application/json'
-//     },
-//     method: 'POST',
-//     body: JSON.stringify(
-//       {
-//         'content':content
-//       }
-//     )
-//   })
-// }
-
-
 async function deleteReview(review_id){
   const response = await fetch(`${backend_base_url}/review/alcoholreview/${review_id}`, {
     method : 'DELETE',
@@ -166,6 +137,5 @@ async function deleteReview(review_id){
       'Authorization': 'Bearer ' + localStorage.getItem("access"),
     }
   })
-  console.log(response)
   location.reload()
 }
