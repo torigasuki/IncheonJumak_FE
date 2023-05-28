@@ -1,8 +1,8 @@
-import { injectNavbar, injectFooter } from '../../../js/navbar.js'
+import { injectNavbar, injectFooter } from '../../../js/protocol_api.js'
 import { AlcholShow } from '../../../js/index.js' 
 
-const BACKEND_API = "http://127.0.0.1:8000";
-const FRONTEND_API = "http://127.0.0.1:5500";
+const BACKEND_API = "https://api.sw-iing.com";
+const FRONTEND_API = "https://sw-iing.com";
 
 window.onload = async () => {
     await injectNavbar();
@@ -11,16 +11,12 @@ window.onload = async () => {
     AlcholCategoryShow();
 }
 
-const all = document.getElementById('all-alchol')
 const soju = document.getElementById('soju-alchol')
 const rice = document.getElementById('rice-alchol')
 const cheong = document.getElementById('cheong-alchol')
 const wine = document.getElementById('wine-alchol')
 const spirit = document.getElementById('spirit-alchol')
 
-all.onclick = () => {
-    AlcholCategoryShow()
-}
 soju.onclick = () => {
     AlcholCategoryShow('소주')
 }
@@ -64,14 +60,15 @@ async function AlcholCategoryShow(category_name) {
         const beverage = e.beverage
         const image = e.image
         const taste = e.taste
-
-        alchol_category_list.innerHTML += `<div class="card" onclick="AlcholDetailShow(${id})">
-                                    <img src="${BACKEND_API}${image}">
-                                    <div class="alchol-card">
-                                        <span class="alchol-name">${name}</span>
-                                        <span class="alchol-desc">${beverage}도</span>
-                                        <span class="alchol-desc">#${taste}</span>
-                                    </div>
-                                </div>`
+        alchol_category_list.innerHTML += `<div id="alchol-card" class="card">
+                                                <a href="/subpages/detail/alc_detail.html?id=${id}">
+                                                    <img src="${BACKEND_API}${image}">
+                                                    <div class="alchol-card">
+                                                        <span class="alchol-name">${name}</span>
+                                                        <span class="alchol-desc">${beverage}도</span>
+                                                        <span class="alchol-desc">#${taste}</span>
+                                                    </div>
+                                                </a>
+                                            </div>`
     })
 }

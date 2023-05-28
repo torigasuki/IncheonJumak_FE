@@ -1,23 +1,22 @@
+@font-face {
+    font-family: 'SangSangRock';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'SangSangRock';
     background-color: rgb(245, 245, 245);
 }
-/* 
-.main-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 180px;
-    align-items: center;
-    background-color: rgb(32, 37, 64); 
-}
- */
-
 
 .main-container {
-    margin: 35px 25px 25px 25px;
+    margin: auto;
+    margin-top: 250px;
+    margin-bottom: 100px;
+    width: 70%;
     padding: 16px;
     border: 1px solid rgb(222, 220, 220);
     border-radius: 8px;
@@ -45,15 +44,22 @@ body {
     clear: both;
 }
 
-
 /* 유저 프로필 */
 
 .user-info {
     margin-top: 20px;
 }
+
 .image-box {
     padding-bottom: 20 px;
     width: 350px;
     height: 350px;
     border-radius: 1px solid rgb(222, 220, 220);
+}
+#profile_image{
+    width:100%
+}
+a{
+    text-decoration: none;
+    color: black;
 }

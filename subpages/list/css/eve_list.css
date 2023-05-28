@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'SangSangRock';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'SangSangRock';
+    background-color: rgb(245, 245, 245);
+}
+
+main {
+    width: 1200px;
+    margin: auto;
+}
+
+.card-title {
+    margin-top: 250px;
+    margin-bottom: 50px;
+    display: flex;
+    text-align: center;
+}
+
+.card-title > a {
+    font-size: 28px; 
+    margin: auto;
+}
+
+.event-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.event {
+    width: 400px;
+    height: 600px;
+    border-radius: 10px;
+    background-color: black;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: none;
+}
+
+.event:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.event > a > img {
+    display: flex;
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.event-desc {
+    width: 30%;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.event-desc > span {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.event-name {
+    font-size: 24px;
+    font-style: bold;
+}
+
+.event-region {
+    font-size: 15px;
+    margin-bottom: 50px !important;
+}

@@ -24,4 +24,9 @@ window.onload = async () => {
         e.preventDefault();
         userLogin()
     })
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            userLogin()
+        }
+    })
 }

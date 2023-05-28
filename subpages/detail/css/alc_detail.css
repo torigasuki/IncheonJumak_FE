@@ -1,52 +1,58 @@
-.cate_title{
-    font-size: 25px;
+@font-face {
+    font-family: 'SangSangRock';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'SangSangRock';
+    background-color: rgb(245, 245, 245);
+}
+
+main {
+    width: 1200px;
     margin: auto;
-    color: darkgoldenrod;
 }
 
-.image_JM{
-    width: 40%;
-    max-width: 40%;
-    height: auto;
-    margin-left: 10%;
+section {
+    margin-top: 250px;
 }
 
-.card_wrapJM{
-    margin: 50px 40px;
-    display: flex;
-    flex-wrap: wrap;
+.main-container {
+    margin-top: -100px;
 }
 
-.card-rowJM {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: column;
-    margin: 10px 80px 0 auto;
+.card-title {
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: row;
+    align-items: center;
+    justify-content: center;
 }
 
-.typing-container {
-    width: 600px;
-    max-width: 100%;
-    height: 100px;
-    border: 2px solid #ccc;
-    padding: 10px;
-    overflow: auto;
-  }
+.card-title > span {
+    font-size: 28px; 
+    margin: auto;
+}
 
-.typed-text {
-    font-family: monospace;
-    font-size: 14px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
+.card-detail {    
+    height: 300px;
+    background-color: lightsteelblue;
+    padding: 16px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 8px;
+}
 
-/* .button-rightJM {
-    background-color: yellow;
-    border-radius: 8%;
-    font-size: 50%;
-    margin: 0 0 0 auto;
-} */
+.review-container {
+    margin-bottom: 100px;
+}
+
+.review-container {
+    margin-bottom: 100px;
+}
 
 .column-JM{
     display: flex;
@@ -56,11 +62,11 @@
 }
 
 .column-JM > * {
-    margin-left: 15%; /* 원하는 마진 크기로 조정 */
+    margin-left: 15%;
 }
 
 .column-JM > *:last-child {
-    margin-right: 15%; /* 마지막 자식 요소에는 마진을 적용하지 않음 */
+    margin-right: 15%;
 }
 
 .typing-review {
@@ -70,11 +76,11 @@
     border: 2px solid #ccc;
     padding: 10px;
     overflow: auto;
-    margin: 5px 15% 5px 15%;
-  }
+    margin: 5px 15% 5px 15%;    
+}
 
-/* .line_JM {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-} */
+.typing-review > input {
+    border-style: none;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+}

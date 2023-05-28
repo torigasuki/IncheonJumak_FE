@@ -1,23 +1,24 @@
+@font-face {
+    font-family: 'SangSangRock';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SangSangRockOTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto Slab', serif;
-    background-color: rgb(255, 255, 255);
+    font-family: 'SangSangRock';
 }
 
 main {
-    width: 1800px;
+    width: 1200px;
     margin: 0 auto;
 }
 
 .alchol-aria {
     margin-top: 250px;
 }
-
-/* main > .alchol-aria {
-    background-color: rgb(245, 245, 245)
-} */
-
 
 .card-title {
     margin-top: 50px;
@@ -47,7 +48,6 @@ main {
     justify-content: center;
     align-items: center;
     position: relative;
-    /* background-color: rgb(245, 245, 245); */
 }
 
 .card-container > .alchol-list {
@@ -91,6 +91,10 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.alchol-card > span {
+    color: white;
 }
 
 .alchol-name {
@@ -154,7 +158,6 @@ main {
     border-style: none;
     width: 50px;
     height: 50px;
-    /* background-color: rgb(245, 245, 245) */
 }
 
 .pagination-btn-br {
@@ -164,7 +167,6 @@ main {
     border-style: none;
     width: 50px;
     height: 50px;
-    /* background-color: rgb(245, 245, 245) */
 }
 
 .pagination-btn-bl > img {
@@ -196,7 +198,9 @@ main {
     text-align: center;
     display: block;
     float: left;
+    cursor: pointer;
 }
+
 ul > li {
     list-style-type: none;
 }

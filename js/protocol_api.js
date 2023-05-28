@@ -1,11 +1,12 @@
-const BACKEND_URL = 'http://127.0.0.1:8000'
+const BACKEND_URL = 'https://api.sw-iing.com'
+const FRONTEND_API = "https://sw-iing.com";
 const contentjson = { 'Content-Type': 'application/json' }
+
 export async function navBar() {
     const response = await fetch('/navbar.html')
     const html = await response.text()
     document.getElementsByTagName('header')[0].innerHTML = html
     checkLogin()
-
 }
 function checkLogin() {
     const header_btn = document.getElementById('header_btn')
@@ -101,6 +102,7 @@ export async function userLogin() {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         }).join(''))
         localStorage.setItem('payload', jsonPayload)
+        window.location.href = '/'
     }
 }
 
@@ -167,7 +169,7 @@ export async function sendMail(){
 function countdown() {
     const timer = document.getElementById('verify_count')
     timer.style.display = 'inline'
-    var count = 10
+    var count = 600
 
     var interval = setInterval(function() {
         var minutes = Math.floor(count / 60); 
@@ -180,7 +182,8 @@ function countdown() {
 
         if (count < 0) {
             clearInterval(interval); // 카운트다운 종료
-            console.log("Countdown Complete!"); // 종료 메시지 출력
+            timer.style.display = 'none'
+            alert('인증 시간이 초과되었습니다')
         }
     }, 1000); // 1초마다 실행
 }
@@ -223,8 +226,47 @@ export async function signUp() {
     }
 }
 
-export async function logOut() {
+
+
+export async function injectNavbar() {
+    let navbarhtml = await fetch(`${FRONTEND_API}/navbar.html`)
+    let data = await navbarhtml.text()
+    document.querySelector("header").innerHTML = data;
+
+    const payload = localStorage.getItem('payload');
+
+    if (payload) {
+        let login = document.getElementById('login')
+        login.style.display = "none";
+
+        let signup = document.getElementById('signup')
+        signup.style.display = "none";
+    } else {
+        let mypage_btn = document.getElementById('mypage')
+        mypage_btn.style.display = "none";
+
+        let logout_btn = document.getElementById('logout')
+        logout_btn.style.display = "none";
+    }
+    document.getElementById('logout').addEventListener('click', () => {
+        logOut();
+    })
+}
+
+export async function injectFooter() {
+    fetch(`${FRONTEND_API}/footer.html`).then(response => {
+        return response.text()
+    }).then(data => {
+        document.querySelector("footer").innerHTML = data;
+    })
+}
+
+
+
+function logOut() {
     localStorage.removeItem('refresh')
     localStorage.removeItem('access')
     localStorage.removeItem('payload')
+    window.location.reload()
 }
+
